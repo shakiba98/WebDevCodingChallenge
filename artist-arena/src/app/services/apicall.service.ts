@@ -9,11 +9,7 @@ import { map, catchError } from 'rxjs/operators';
 })
 export class ApicallService {
 
-  constructor(
-
-    private httpClient: HttpClient
-
-  ){}
+  constructor(private httpClient: HttpClient){}
 
 
   getArtists() {
