@@ -11,11 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ArtistSearchComponent implements OnInit {
   artists : Array<Artist> = [];
-<<<<<<< HEAD
   search: string = ""
-=======
-  Search_input: String = ""
->>>>>>> b649b2ccdad4ceb72d226b79544e748538787f47
 
   //artist: new Artist;
   constructor(
@@ -29,10 +25,6 @@ export class ArtistSearchComponent implements OnInit {
 
 
     getArtistList() {
-<<<<<<< HEAD
-=======
-    console.log(this.search);
->>>>>>> b649b2ccdad4ceb72d226b79544e748538787f47
     this.apiService
     .getArtists(this.search)
     .subscribe((data:any) => {
