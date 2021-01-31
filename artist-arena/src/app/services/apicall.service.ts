@@ -12,13 +12,13 @@ export class ApicallService {
   constructor(private httpClient: HttpClient){}
 
 
-  getArtists() {
+  getArtists(search: string) {
     const params = new HttpParams({
       fromObject: {
         app_id: 'abc'
       }
     });
-   return this.httpClient.get(`https://rest.bandsintown.com/artists/abc`, {params: params}).
+   return this.httpClient.get(`https://rest.bandsintown.com/artists/${search}`, {params: params}).
        pipe(
           map((data: Artist[]) => {
             return data;
