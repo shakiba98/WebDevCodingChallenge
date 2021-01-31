@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Artist } from '../models/artist.model';
+import { Event } from '../models/event.model';
 import { ApicallService } from '../services/apicall.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -11,6 +12,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ArtistSearchComponent implements OnInit {
   artists : Array<Artist> = [];
+  events: Array<Event> = [];
   search: string = ""
 
   //artist: new Artist;
@@ -20,7 +22,9 @@ export class ArtistSearchComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getArtistList();
+      if(this.search!=""){
+      this.getArtistList();
+    }
   }
 
 
@@ -35,10 +39,24 @@ export class ArtistSearchComponent implements OnInit {
 
   }
 
+  getEventList() {
+  this.apiService
+  .getEvents(this.search)
+  .subscribe((data:any) => {
+    console.log(data);
+    this.events.push(data);
+
+  });
+
+}
+
+
   myFunc(Search_input){
    this.search = Search_input;
-   this.artists =[];
+   this.artists = [];
+   this.events = [];
    this.getArtistList();
+   this.getEventList();
  }
 
   }
