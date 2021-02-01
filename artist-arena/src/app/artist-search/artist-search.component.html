@@ -11,34 +11,53 @@
 		<a class="close" href=" ">Back to Search</a>
 		<div class="content">
             <div *ngIf="artists.length > 0">
-               <h4>{{artists?.length}} Results found for {{search}}</h4>
+               <h4>{{artists?.length}} Results found for "{{search}}"</h4>
                 <div *ngFor="let artist of artists">
                   <div class="profilecard">
                     <img src={{artist.image_url}} alt="Avatar">
                     <div class="profiletext">
-                      <p>{{artist.name}}</p>
-                      <p>{{artist.url}}</p>
+                      <div class="profilename">{{artist.name}}</div>
+                      {{artist.facebook_page_url}}
                     </div>
-                    <div>
+                    </div>
                 </div>
               </div>
               <div *ngIf="!artists || artists.length === 0">
                 <h4>No Results found for {{search}}</h4>
               </div>
 
+              <hr>
 
-        <div ng-if="events?.length > 0">
+        <div *ngIf="events.length > 0">
                   <div *ngFor="let data of events; let i = index">
-                      <h3> Event Details </h3>
-                      <div *ngFor="let event of data">
-                          {{event.venue.name}}
-                          {{event.venue.country}}
-                          {{event.venue.city}}
-                          <br>
-                      </div>
-                  </div>
+                      <h4> Event Details </h4>
 
+                      <div class="container" *ngFor="let event of data">
+                        <div class="row">
+                          <div class="column">
+                            <div class="profilename">Country
+                            </div>
+                            {{event.venue.country}}
+                            <div class="profilename">Venue
+                            </div>
+                            {{event.venue.name}}
+                            </div>
+                            <div class="column">
+                            <div class="profilename">City
+                            </div>
+                            {{event.venue.city}}
+                            <div class="profilename">Date
+                            </div>
+                            {{event.datetime | date }}
+                          </div>
+                    </div>
+                    </div>
+                  </div>
         </div>
+        <div *ngIf="!events || events.length === 0">
+          <h4>No Events found for {{search}}</h4>
+        </div>
+
 		</div>
 	</div>
 </div>

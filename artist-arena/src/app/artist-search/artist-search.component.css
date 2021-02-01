@@ -46,11 +46,29 @@ img {
 .profilecard {
     margin: 30px;
     display: inline-flex;
+    border: 10px;
 }
 
 .profiletext {
     text-align: left;
     margin-left: 20px;
+    margin-right: 20px;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+.profilename{
+  font-weight: bold;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+  padding: 10px;
 }
 
 //for overlay
@@ -90,7 +108,7 @@ img {
   padding: 20px;
   background: #fff;
   border-radius: 5px;
-  width: 40%;
+  width: 60%;
   height: 80%;
   position: relative;
   transition: all 5s ease-in-out;
@@ -117,7 +135,7 @@ img {
 }
 .popup .content {
   margin-top:20px;
-  max-height: 70%;
+  max-height: 100%;
   overflow: auto;
   color: black;
 }
