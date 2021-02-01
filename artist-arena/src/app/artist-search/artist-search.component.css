@@ -45,6 +45,12 @@ img {
 
 .profilecard {
     margin: 30px;
+    display: inline-flex;
+}
+
+.profiletext {
+    text-align: left;
+    margin-left: 20px;
 }
 
 //for overlay

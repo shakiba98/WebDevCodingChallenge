@@ -15,8 +15,10 @@
                 <div *ngFor="let artist of artists">
                   <div class="profilecard">
                     <img src={{artist.image_url}} alt="Avatar">
-                    <h3>{{artist.name}}</h3><p></p>
-                    <h3>{{artist.url}}</h3>
+                    <div class="profiletext">
+                      <p>{{artist.name}}</p>
+                      <p>{{artist.url}}</p>
+                    </div>
                     <div>
                 </div>
               </div>
