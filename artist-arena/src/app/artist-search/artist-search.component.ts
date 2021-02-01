@@ -4,6 +4,7 @@ import { Event } from '../models/event.model';
 import { ApicallService } from '../services/apicall.service';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-artist-search',
   templateUrl: './artist-search.component.html',
@@ -13,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
 export class ArtistSearchComponent implements OnInit {
   artists : Array<Artist> = [];
   events: Array<Event> = [];
-  search: string = ""
+  search: string = "";
 
   //artist: new Artist;
   constructor(
@@ -21,42 +22,39 @@ export class ArtistSearchComponent implements OnInit {
     private apiService: ApicallService
   ) { }
 
-  ngOnInit() {
-      if(this.search!=""){
-      this.getArtistList();
-    }
+  ngOnInit():void{
+
   }
+
+    searchArtist(Search_input){
+     this.search = Search_input;
+     this.clearLists();
+     this.getArtistList();
+     this.getEventList();
+ }
 
 
     getArtistList() {
     this.apiService
     .getArtists(this.search)
     .subscribe((data:any) => {
-      console.log(data);
-      this.artists.push(data);
-
+    this.artists.push(data);
     });
 
   }
 
-  getEventList() {
-  this.apiService
-  .getEvents(this.search)
-  .subscribe((data:any) => {
-    console.log(data);
+    getEventList() {
+    this.apiService
+    .getEvents(this.search)
+    .subscribe((data:any) => {
     this.events.push(data);
-
-  });
-
-}
-
-
-  myFunc(Search_input){
-   this.search = Search_input;
-   this.artists = [];
-   this.events = [];
-   this.getArtistList();
-   this.getEventList();
- }
+    });
 
   }
+
+    clearLists(){
+    this.artists = [];
+    this.events = [];
+    }
+
+}

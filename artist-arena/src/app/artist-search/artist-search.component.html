@@ -1,28 +1,42 @@
-<!-- Search form -->
-<form class="form-inline waves-light" mdbWavesEffect>
-  <div class="md-form mt-0">
-    <input id="Search_input" name="search" [(ngModel)]="search" class="form-control mr-sm-2" type="text" placeholder="Search">
-    <button type="button" name="button"  (click)="myFunc(search)" >Search</button>
+
+<form>
+  <div class="searchDiv">
+    <input id="Search_input" name="search" [(ngModel)]="search" class="searchInput" type="text" placeholder="Search here for your artist">
+    <button class="button" name="button" class="searchButton"  onclick="window.location.href='#popup1'" (click)="searchArtist(search)">Search</button>
   </div>
 </form>
 
-<table class="table table-striped">
-    <tbody>
-        <tr *ngFor="let artist of artists">
-            <td>{{artist.id}}</td>
-            <td>{{artist.name}}</td>
-            <td>{{artist.url}}</td>
-        </tr>
-    </tbody>
-</table>
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<a class="close" href=" ">Back to Search</a>
+		<div class="content">
+            <div *ngIf="artists.length > 0">
+               <h4>{{artists?.length}} Results found for {{search}}</h4>
+                <div *ngFor="let artist of artists">
+                  <div class="profilecard">
+                    <img src={{artist.image_url}} alt="Avatar">
+                    <h3>{{artist.name}}</h3><p></p>
+                    <h3>{{artist.url}}</h3>
+                    <div>
+                </div>
+              </div>
+              <div *ngIf="!artists || artists.length === 0">
+                <h4>No Results found for {{search}}</h4>
+              </div>
 
-<h3> Event Details </h3>
 
-        <div *ngFor="let data of events; let i = index">
-            <div *ngFor="let event of data">
-                {{event.venue.name}}
-                {{event.venue.country}}
-                {{event.venue.city}}
-                <br>
-            </div>
+        <div ng-if="events?.length > 0">
+                  <div *ngFor="let data of events; let i = index">
+                      <h3> Event Details </h3>
+                      <div *ngFor="let event of data">
+                          {{event.venue.name}}
+                          {{event.venue.country}}
+                          {{event.venue.city}}
+                          <br>
+                      </div>
+                  </div>
+
         </div>
+		</div>
+	</div>
+</div>
