@@ -64,6 +64,9 @@ img {
 
 .row {
   display: flex;
+  padding-right: 150px;
+  border-style: outset;
+  margin-bottom: 10px;
 }
 
 .column {
@@ -80,11 +83,12 @@ img {
   border: 2px solid #06D85F;
   border-radius: 20px/50px;
   text-decoration: none;
-  cursor: pointer;
+  cursor: pointer !important;
   transition: all 0.3s ease-out;
 }
 .button:hover {
   background: #06D85F;
+  cursor: pointer !important;
 }
 
 .overlay {
@@ -139,6 +143,14 @@ img {
   overflow: auto;
   color: black;
 }
+h4 {
+    padding-left: 10px;
+    margin-bottom: -1px !important;
+}
+
+@media screen and (max-width: 1025px){
+
+}
 
 @media screen and (max-width: 700px){
   .box{
@@ -146,5 +158,22 @@ img {
   }
   .popup{
     width: 70%;
+  }
+
+  .row {
+    display: flex;
+    padding-right: 10px;
+    border-style: outset;
+    margin-bottom: 10px;
+  }
+
+  input.searchInput {
+    border: #16001e;
+    width: 200px;
+    height: 20px;
+    margin-left: 90px;
+    padding-right: 20px;
+    border-radius: 25px;
+    font-weight: 400;
   }
 }

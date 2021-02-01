@@ -1,12 +1,12 @@
 
 <form>
   <div class="searchDiv">
-    <input id="Search_input" name="search" [(ngModel)]="search" class="searchInput" type="text" placeholder="Search here for your artist">
-    <button class="button" name="button" class="searchButton"  onclick="window.location.href='#popup1'" (click)="searchArtist(search)">Search</button>
+    <input id="Search_input" required name="search" [(ngModel)]="search" class="searchInput" type="text" placeholder="Search here for your artist">
+    <button class="button" [disabled]="!search" name="button" class="searchButton"  onclick="window.location.href='#popup1'" (click)="searchArtist(search)">Search</button>
   </div>
 </form>
 
-<div id="popup1" class="overlay">
+<div *ngIf="search" id="popup1" class="overlay">
 	<div class="popup">
 		<a class="close" href=" ">Back to Search</a>
 		<div class="content">
@@ -30,22 +30,24 @@
 
         <div *ngIf="events.length > 0">
                   <div *ngFor="let data of events; let i = index">
-                      <h4> Event Details </h4>
-
                       <div class="container" *ngFor="let event of data">
+                        <h4> Event Details </h4>
+                        <p></p>
                         <div class="row">
-                          <div class="column">
+                          <div class="column profiletext">
                             <div class="profilename">Country
                             </div>
                             {{event.venue.country}}
+                            <p></p>
                             <div class="profilename">Venue
                             </div>
                             {{event.venue.name}}
                             </div>
-                            <div class="column">
+                            <div class="column profiletext">
                             <div class="profilename">City
                             </div>
                             {{event.venue.city}}
+                            <p></p>
                             <div class="profilename">Date
                             </div>
                             {{event.datetime | date }}
@@ -53,10 +55,12 @@
                     </div>
                     </div>
                   </div>
+                  <div *ngIf="!data || data.length === 0">
+                  <h4>No Events found for {{search}}</h4>
+                </div>
+
         </div>
-        <div *ngIf="!events || events.length === 0">
-          <h4>No Events found for {{search}}</h4>
-        </div>
+
 
 		</div>
 	</div>

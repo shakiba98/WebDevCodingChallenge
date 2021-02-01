@@ -11,12 +11,13 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./artist-search.component.css'],
   providers: [ApicallService]
 })
+
 export class ArtistSearchComponent implements OnInit {
   artists : Array<Artist> = [];
   events: Array<Event> = [];
   search: string = "";
+  display_message = "";
 
-  //artist: new Artist;
   constructor(
     private httpClient: HttpClient,
     private apiService: ApicallService
