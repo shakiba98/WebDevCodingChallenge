@@ -55,11 +55,11 @@
                     </div>
                     </div>
                   </div>
-                  <div *ngIf="!data || data.length === 0">
-                  <h4>No Events found for {{search}}</h4>
-                </div>
 
         </div>
+        <div *ngIf="!events || events.length === 0">
+        <h4>No Events found for {{search}}</h4>
+      </div>
 
 
 		</div>
