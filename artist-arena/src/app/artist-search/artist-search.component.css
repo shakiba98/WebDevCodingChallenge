@@ -19,6 +19,7 @@ input::placeholder{
 
 input.searchInput {
   position: relative;
+  height: 20px;
   left: -160px;
   top: -25px;
   border: #16001e;

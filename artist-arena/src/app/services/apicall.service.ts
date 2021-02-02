@@ -12,6 +12,7 @@ export class ApicallService {
 
   constructor(private httpClient: HttpClient){}
 
+ //This method is used to get Artists from the API using its base URL
 
   getArtists(search: string) {
     const params = new HttpParams({
@@ -28,6 +29,8 @@ export class ApicallService {
           })
        )
    }
+
+ //This method is used to get Events from the API using its base URL
 
    getEvents(search: string) {
      const params = new HttpParams({

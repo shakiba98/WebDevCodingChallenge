@@ -1,6 +1,8 @@
 import { Venue } from '../models/venue.model';
 import { Offer } from '../models/offer.model';
 
+//Event model that stores information related to an event
+
 export class Event {
   id:	string;
   artist_id:	string;

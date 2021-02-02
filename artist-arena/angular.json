@@ -26,7 +26,6 @@
               "src/styles.css"
             ],
             "scripts": [
-              "src/assets/js/overlay.js"
             ],
             "es5BrowserSupport": true
           },

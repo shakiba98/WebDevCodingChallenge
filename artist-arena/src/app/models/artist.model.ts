@@ -1,3 +1,5 @@
+//Artist model that stores information related to an artist
+
 export class Artist {
      _id: number;
      name:	string;

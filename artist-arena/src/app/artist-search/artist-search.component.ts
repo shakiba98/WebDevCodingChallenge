@@ -16,7 +16,6 @@ export class ArtistSearchComponent implements OnInit {
   artists : Array<Artist> = [];
   events: Array<Event> = [];
   search: string = "";
-  display_message = "";
 
   constructor(
     private httpClient: HttpClient,
@@ -27,12 +26,16 @@ export class ArtistSearchComponent implements OnInit {
 
   }
 
-    searchArtist(Search_input){
+  //This method takes the input text from Search and gets the relevant Artists and Events
+
+    searchArtist (Search_input) {
      this.search = Search_input;
      this.clearLists();
      this.getArtistList();
      this.getEventList();
- }
+   }
+
+   //This method is used to get the Artists information from the API using the ApicallService
 
 
     getArtistList() {
@@ -44,6 +47,8 @@ export class ArtistSearchComponent implements OnInit {
 
   }
 
+    //This method is used to get the Events information from the API using the ApicallService
+
     getEventList() {
     this.apiService
     .getEvents(this.search)
@@ -52,6 +57,8 @@ export class ArtistSearchComponent implements OnInit {
     });
 
   }
+
+    //This method is used to Clear the lists for a new search
 
     clearLists(){
     this.artists = [];
